@@ -1,18 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Galdys</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* subtle animated noise / grid feel */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .subhead {
+      max-width: 720px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 42px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    .btn {
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: #e5e5e5;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin: 64px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      padding: 26px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
 </head>
-<body style="margin:0;font-family:Arial, sans-serif;background:#0a0a0f;color:#fff;">
 
-  <div style="max-width:900px;margin:80px auto;padding:40px;">
-    <h1 style="font-size:42px;">Andrew Galdys</h1>
-    <p style="font-size:18px;color:#bbb;">
-      Finance student, investor, and founder of Cipher Intel.
+<body>
+  <main class="container">
+    <div class="eyebrow">Personal Site</div>
+
+    <h1>Andrew Galdys</h1>
+
+    <p class="subhead">
+      Finance student and builder working at the intersection of markets, commodities,
+      and intelligent systems. Founder of Cipher Intel, a student led research platform
+      focused on long term capital allocation.
     </p>
-  </div>
 
+    <div class="actions">
+      <a href="https://cipherintel.ai" class="btn btn-primary">Cipher Intel</a>
+      <a href="https://www.linkedin.com" class="btn btn-secondary">LinkedIn</a>
+      <a href="mailto:andrew@example.com" class="btn btn-secondary">Email</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Markets</h3>
+        <p>
+          Ongoing analysis of equities, commodities, and macroeconomic trends
+          with a focus on structural shifts rather than short term noise.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Cipher Intel</h3>
+        <p>
+          A platform for student analysts to publish research, build credibility,
+          and develop real investment frameworks.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Long Term Focus</h3>
+        <p>
+          Interested in durable businesses, real assets, and systems that compound
+          over long periods of time.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Andrew Galdys ·
+      <a href="https://cipherintel.ai">Cipher Intel</a>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
